@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "parcel index.html"
+    "start": "parcel ./src/index.html"
   },
   "keywords": [],
   "author": "",
