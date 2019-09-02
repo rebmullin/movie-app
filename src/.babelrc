@@ -1,4 +1,4 @@
 {
-  "presets": ["@babel/core","@babel/env", "@babel/react"],
+  "presets": ["@babel/core","@babel/env", "@babel/react", "react-app"],
   "plugins": ["transform-class-properties"]
 }
