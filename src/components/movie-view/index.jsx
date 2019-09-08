@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 
-import "./styels.scss";
+import "./styles.scss";
 
 class MovieView extends Component {
   constructor() {
