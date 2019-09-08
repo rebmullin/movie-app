@@ -83,22 +83,22 @@ class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        <CardColumns>
-          {selectedMovie ? (
-            <React.Fragment>
-              <MovieView movie={selectedMovie} />
-              <Button onClick={() => this.onMovieClick()}>Go Back</Button>
-            </React.Fragment>
-          ) : (
+        {selectedMovie ? (
+          <div>
+            <MovieView movie={selectedMovie} />
+            <Button onClick={() => this.onMovieClick()}>Go Back</Button>
+          </div>
+        ) : (
+          <CardColumns>
             movies.map(movie => (
-              <MovieCard
-                movie={movie}
-                key={movie._id}
-                onClick={movie => this.onMovieClick(movie)}
-              />
+            <MovieCard
+              movie={movie}
+              key={movie._id}
+              onClick={movie => this.onMovieClick(movie)}
+            />
             ))
-          )}
-        </CardColumns>
+          </CardColumns>
+        )}
       </div>
     );
   }
