@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Card from "react-bootstrap/Card";
 
-export default class MovieView extends Component {
+class MovieView extends Component {
   constructor() {
     super();
     this.state = {};
@@ -10,25 +12,33 @@ export default class MovieView extends Component {
 
     if (!movie) return null;
     return (
-      <div className="movie-view">
-        <div className="movie-title">
-          <div className="label">Title</div>
-          <div className="value">{movie.Title}</div>
-        </div>
-        <div className="movie-description">
-          <div className="label">Description</div>
-          <div className="value">{movie.Description}</div>
-        </div>
-        <img className="movie-poster" src={movie.ImagePath} />
-        <div className="movie-genre">
-          <div className="label">Genre</div>
-          <div className="value">{movie.Genre.Name}</div>
-        </div>
-        <div className="movie-director">
-          <div className="label">Director</div>
-          <div className="value">{movie.Director.Name}</div>
-        </div>
-      </div>
+      <Card className="movie-view">
+        <Card.Title as="h1">{movie.Title}</Card.Title>
+        <Card.Body>
+          <Card.Img src="https://dummyimage.com/500x250/000/fff" />
+          <Card.Text>
+            {movie.Description}
+            {movie.Genre && movie.Genre.Name}
+            {movie.Director && movie.Director.Name}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string
+    })
+  }).isRequired
+};
+
+export default MovieView;

@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MovieView from "./components/main-view";
+import Registration from "./components/registration-view";
+import LoginView from "./components/login-view";
 
 // Import statement to indicate that you need to bundle scss
 import "./index.scss";
@@ -11,6 +13,8 @@ class MyFlixApp extends React.Component {
     return (
       <div className="my-flix">
         <MovieView />
+        {/* <Registration /> */}
+        {/* <LoginView /> */}
       </div>
     );
   }
