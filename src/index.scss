@@ -1,3 +1,13 @@
+$link-color: #007bff;
+$text-color: #212529;
+$gray: #444;
+
+$serif: Arial, sans-serif;
+
+body {
+  font-family: $serif;
+}
+
 .form-view {
   width: 75%;
   padding: 20px;
@@ -7,4 +17,12 @@
     text-align: center;
     margin-bottom: 40px;
   }
+}
+
+.card-header {
+  color: $gray;
+}
+
+.card-text {
+  line-height: 1.2;
 }
