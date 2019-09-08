@@ -4,7 +4,7 @@ import MovieCard from "../movie-card";
 import MovieView from "../movie-view";
 import LoginView from "../login-view";
 import Registration from "../registration-view";
-import CardColumns from "react-bootstrap/CardColumns";
+import { CardColumns } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 class MainView extends React.Component {
