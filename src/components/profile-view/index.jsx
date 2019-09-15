@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col";
 import MovieCard from "../movie-card";
 import { CardColumns } from "react-bootstrap";
 
+import "./styles.scss";
+
 export const baseURL = "https://cool-movie-api.herokuapp.com";
 
 const ProfileView = props => {
@@ -102,8 +104,8 @@ const ProfileView = props => {
     <p>Your profile has been updated!</p>
   ) : (
     <div className="profile-view">
-      <h1>Profile</h1>
       <div className="form-view">
+        <h1>Profile</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group as={Row} controlId="profileEmail">
             <Form.Label column sm={2}>
@@ -154,7 +156,7 @@ const ProfileView = props => {
       )}
 
       <div className="profile-deregister">
-        <Button onClick={deregister}>Degregister</Button>
+        <Button onClick={deregister}>Deregister</Button>
       </div>
     </div>
   );
