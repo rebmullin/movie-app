@@ -1,2 +1,25 @@
 .main-view {
+  display: flex;
+  justify-content: center;
+}
+
+.movies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .card-columns {
+    margin-top: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+
+    + .card-columns {
+      margin-top: 50px;
+      box-shadow: none;
+    }
+  }
+}
+
+.section-title {
+  text-transform: uppercase;
 }

@@ -9,6 +9,7 @@ const LoginView = props => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
     if (error) {
@@ -28,23 +29,31 @@ const LoginView = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    setLoading(true);
+
     /* Send a request to the server for authentication */
     axios
+      //.post("http://localhost:3000/login", {
       .post(`https://cool-movie-api.herokuapp.com/login`, {
         Username: username,
         Password: password
       })
       .then(response => {
-        /* then call props.onLoggedIn(username) */
-        props.onLoggedIn(username);
+        const { data } = response;
+        props.onLoggedIn(data);
       })
       .catch(error => {
-        console.log(error);
+        console.log("No such user");
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
-  return (
+  return loading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="login-view form-view">
       <h1>Login</h1>
       {error && <p>{error}</p>}

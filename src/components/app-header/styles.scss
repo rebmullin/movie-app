@@ -1,0 +1,12 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  box-shadow: 2px 1px 1px #eee;
+  margin-bottom: 60px;
+
+  h1 {
+    text-transform: uppercase;
+  }
+}

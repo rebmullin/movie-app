@@ -5,3 +5,25 @@
     font-size: 20px;
   }
 }
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+
+  &.favorite-movie {
+    cursor: pointer;
+    font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 0 #999, -1px -1px 0 #999;
+
+    span {
+      display: block;
+    }
+
+    &.favorited-movie {
+      color: red;
+      text-shadow: 1px 1px 0 #999, -1px -1px 0 #999;
+    }
+  }
+}

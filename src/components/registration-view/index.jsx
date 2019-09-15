@@ -13,6 +13,7 @@ const Registration = props => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
     // Clear out the error once the user is updating
@@ -35,24 +36,35 @@ const Registration = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    setLoading(true);
+
     axios
+      //.post("https://localhost:3000/users", {
       .post("https://cool-movie-api.herokuapp.com/users", {
         Username: username,
         Password: password,
         Email: email
       })
       .then(response => {
+        const { data } = response;
         // TODO: do something with response?
-        props.onLoggedIn(username);
+        // TODO: figure out how i am supposed to get token :/
+        props.onLoggedIn({ user: data });
+        window.open("/", "_self");
       })
       .catch(error => {
-        console.log(error);
+        console.log("error registering the user");
         // TODO: improve error message
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
-  return (
+  return loading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="registration-view form-view">
       <h1>Registration</h1>
       {error && <p>{error}</p>}
